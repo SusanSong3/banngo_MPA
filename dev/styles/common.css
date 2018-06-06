@@ -1,0 +1,14 @@
+html, body {
+  overflow: hidden;
+  height: 100%;
+  font-size: 6.25vw; }
+
+#root {
+  height: 100%; }
+
+@font-face {
+  font-family: 'iconfont';
+  src: url("/iconfonts/iconfont.woff") format("woff"), url("/iconfonts/iconfont.ttf") format("truetype"), url("/iconfonts/iconfont.svg") format("svg"); }
+
+a {
+  color: black; }

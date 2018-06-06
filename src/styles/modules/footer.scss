@@ -1,0 +1,42 @@
+.container{
+    footer{
+        height: 2.2rem;
+        background: #eaeaea;
+        ul{
+            display: flex;
+            height: 100%;
+            flex-direction: row;
+            justify-content: center;
+            li{
+                flex: 1;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                a{
+                    font-size: .5rem;
+                    font-weight: 700;
+                    color: #333;
+                    i{
+                    width: 1.5rem;
+                    font-size: .85rem;;
+                    font-family: "iconfont";
+                    padding-right: .3rem;
+                    color: #333;
+                    }
+                }
+                &.active{
+                    a{
+                        color: #f8584f;
+                        i{
+                            color: #f8584f;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+}

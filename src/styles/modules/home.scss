@@ -1,0 +1,250 @@
+.container{
+    main{
+        @include flex();
+        overflow: scroll;
+        width: 100%;
+        // 轮播图
+        .swiper-container{
+            width: 100%;
+            height: 8rem;
+            overflow: hidden;
+            .swiper-wrapper{
+                a{
+                    width: 16rem;
+                    height: 8rem;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            .swiper-pagination{
+                span{
+                    background: rgba(0, 0, 0, 0.8);
+                }
+            } 
+        }
+        // 用户区块
+        .custom_box{
+            width: 100%;
+            height: 3.85rem;
+            ul{
+                width: 100%;
+                @include flexbox();
+                flex-direction: row;
+                li{
+                    width: 20%;
+                    height: 3.85rem;
+                    @include flexbox();
+                    justify-content: center;
+                    align-items: center;
+                    a {
+                        width: 3.2rem;
+                        height: 3.85rem;
+                        img{
+                            width: 100%;
+                            height: 100%;;
+                        }
+                    }
+                }
+            }
+        }
+        // panner_box
+        .panner_box{
+            width: 100%;
+            height: auto;
+            // 热门品牌
+            .hot_brand{
+                height: 16.4667rem;
+                background: antiquewhite;
+                .title {
+                    a{
+                        display: block;
+                        height: 2rem;
+                        width: 16rem;
+                        line-height: 2rem;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+                .plate{
+                    width: 16rem;
+                    height: auto;
+                    ul{
+                        @include flexbox();
+                        flex-wrap: wrap;
+                        li{
+                            width: 50%;
+                            a{
+                                img{
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            // 邦购精选
+            .banggo_perfect{
+                height: 15rem;
+                background: aliceblue;
+                .title{
+                    a{
+                        height: 2.5rem;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+                .plate{
+                    @include flexbox();
+                    flex-direction: column;
+                    div:nth-of-type(1){
+                        height: 10rem;
+                        width: 100%;
+                        @include flexbox();
+                        flex-direction: row;
+                        a{
+                            width: 50%;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                        div{
+                            width: 50%;
+                            @include flexbox();
+                            flex-direction: column;
+                            a{
+                                width: 100%;
+                            }
+                        }
+                    }
+                    div:nth-of-type(2){
+                        height: 2.5rem;
+                        width: 100%;
+                        a{
+                            img{
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            // 男生热门品牌
+            .man_hot_brand{
+                @include each_brand;
+            }
+            //女生热门品牌
+            .woman_hot_brand{
+                @include each_brand;
+            }
+            //儿童热门品牌
+            .children_hot_brand{
+                @include each_brand;
+            }
+        }
+        //热销商品
+        .top_products{
+            width: 100%;
+            height: auto;
+            // background: pink;
+            @include flexbox();
+            flex-direction: column;
+            flex-wrap: wrap;
+            .title{
+                line-height: 1.8rem;
+                text-align: center;
+                font-size: .75rem;
+                color: #6e6e6e;
+            }
+            .products_list{
+                ul{
+                    width: 100%;
+                    height: auto;                
+                    @include flexbox();
+                    flex-wrap: wrap;
+                    padding: 0 .374rem;
+                    justify-content: space-between;
+                    li{
+                        width: 7.4rem;
+                        height:13.2rem ;
+                        .products_pic{
+                            width: 100%;
+                            height: 10.1rem;
+                            display: block;
+                            background: pink;
+                            img{
+                                width: 100%;
+                                height: 100%;
+                            }
+                        }
+                        .products_title{
+                            height: 1.8rem;  
+                            font-size: .6rem;
+                            color: #919191;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            @include ellipsis(null,2)
+                        }
+                        .products_price{
+                            font-size: .75rem;
+                            color: black;
+                            font-weight: 700;
+                            line-height: 1rem;
+                            height: 1rem;
+                            padding-bottom: .2rem;  
+                            font-family: "微软雅黑"
+                        }
+                    }
+                }
+                footer{
+                    width: 100%;
+                    height: 4rem;
+                    background: white;
+                    nav{
+                        @include flexbox();
+                        flex-direction: row;
+                        justify-content: space-between;
+                        padding:0 .3rem;
+                        height: 2rem;;
+                        line-height: 2rem;
+                        span{
+                            font-size: .7rem;
+                            line-height: 2rem;
+                            &:nth-of-type(1){
+                                a{
+                                    padding: 0 .4rem;
+                                }
+                                span{
+                                    padding: 0 .4rem;
+                                }
+                            }
+                            &::nth-of-type(2){
+                                @include flexbox();
+                                flex-direction: row;
+                                i{
+                                    font-family: "iconfont";
+                                    font-size: 1.6rem;
+                                    line-height: 2rem;
+                                    font-weight: 700;
+                                }
+                            }
+                        }
+                    }
+                    section{
+                        font-size: .6rem;
+                        text-align: center;
+                        line-height: 2rem;
+                    }
+                }
+            } 
+        }
+    }
+}
