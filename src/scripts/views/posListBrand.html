@@ -1,3 +1,6 @@
 {{each data}}
-<dt>{{$value.key}}</dt>
+<dt>{{$index}}</dt>
+{{each value}}
+<dd>{{$value.name}}</dd>
+{{/each}}
 {{/each}}
