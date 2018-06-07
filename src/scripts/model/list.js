@@ -7,6 +7,13 @@ const list = {
             return result
         });
     },
+    findBrand(){
+        return fetch('/showList/list-brand/getAssortBrandInfo.shtml')
+        .then(response => response.json())
+        .then(result => {
+            return result
+        });
+    }
 }
 
 module.exports = list

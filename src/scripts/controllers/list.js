@@ -1,5 +1,6 @@
 const list = require('../model/list')
 const posListBoxTpl = require('../views/posListBox.html')
+const posListBrandTpl = require('../views/posListBrand.html')
 
 const listController = {
     async render(data){
@@ -14,6 +15,19 @@ const listController = {
         let finalhtml = htmlArr.substr(9)
         $('.content').html(finalhtml);
         // return htmlArr
+
+    },
+    async renderBrand(){
+        let result = await list.findBrand()
+        console.log(result);
+        var html = template.render(posListBrandTpl, result)
+        console.log(html);
+        // var htmlArr = htmlArr + html;
+
+        // // console.log(htmlArr);
+        // let finalhtml = htmlArr.substr(9)
+        // $('.content').html(finalhtml);
+        // // return htmlArr
 
     },
     

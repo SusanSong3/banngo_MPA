@@ -54,7 +54,7 @@ a{
   color: black;
 }
 // ------商品页每个模块的标题
-@mixin title{
+@mixin list_subtitle{
     p{
       border-left: .1rem solid #f84646;
       line-height: 1.25rem;
@@ -113,3 +113,10 @@ a{
       }
     }
   }
+// 品牌页标题
+@mixin brand_title{
+  width: 100%;
+  font-size: .6rem;
+  font-weight: 700;
+  padding: .5rem;
+}

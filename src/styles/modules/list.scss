@@ -49,35 +49,36 @@
         overflow: scroll;
         @include flex();
         @include flexbox();
+        flex-direction: column;
         width: 100%;
         
         // 左侧导航栏
-        nav{
-            width: 25%;
-            height: 100%;
-            overflow: hidden;
+        // nav{
+        //     width: 25%;
+        //     height: 100%;
+        //     overflow: hidden;
             
-            ul{
-                li{
-                    height: 2rem;
-                    line-height: 2rem;
-                    font-size: .65rem;
-                    border-bottom: 1px solid #e2e2e2;
-                    overflow: hidden;
-                    border-right: 1px solid #e2e2e2;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    padding-left: .5rem;
+        //     ul{
+        //         li{
+        //             height: 2rem;
+        //             line-height: 2rem;
+        //             font-size: .65rem;
+        //             border-bottom: 1px solid #e2e2e2;
+        //             overflow: hidden;
+        //             border-right: 1px solid #e2e2e2;
+        //             text-overflow: ellipsis;
+        //             white-space: nowrap;
+        //             padding-left: .5rem;
                     
-                    &.selected{
-                        background: white;
-                        border-right: 1px solid white;
-                         color: #f8584f;
+        //             &.selected{
+        //                 background: white;
+        //                 border-right: 1px solid white;
+        //                  color: #f8584f;
                         
-                    }
-                }
-            }
-        }
+        //             }
+        //         }
+        //     }
+        // }
         // 右侧选项卡内容
         .content{
             @include flex();
@@ -87,8 +88,10 @@
             padding-left: .5rem;
             padding-top: .5rem;
             overflow: scroll;
-            @include title;
+            @include list_subtitle;
         }
+
+        
     }
 }
 
