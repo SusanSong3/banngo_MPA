@@ -1,21 +1,16 @@
 const indexTpl = require('./views/index.html')
-const headerTpl = require('./views/header.html')
 const footerTpl = require('./views/footer.html')
 const homeTpl = require('./views/home.html')
 
-const homeController = require('./controllers/home')
 const indexController = require('./controllers/index')
+const homeController = require('./controllers/home')
 
 $('#root').html(indexTpl)
-$('.container').html(headerTpl + homeTpl + footerTpl)
+$('.container').html(homeTpl + footerTpl)
 
-homeController.render((html) => {
+;(async () => {
+    const html = await homeController.render()
     $('#poslist').html(html)
-    // console.log(1);
-})
-homeController.renderBox((result) => {
-    
-    // console.log(result);
-})
+})() 
 
 indexController.footerAction()

@@ -19,6 +19,7 @@ const proxy = require('http-proxy-middleware')
 
 const babel = require('gulp-babel')
 
+const watch = require('gulp-watch')
 // require("babel-core").transform("code", {
 //   plugins: ["transform-runtime"]
 // });
@@ -27,7 +28,7 @@ gulp.task('server', () => {
   return gulp.src('./dev')
     .pipe(server({
       host: 'localhost',
-      port: 8000,
+      port: 7999,
       livereload: true,
       directoryListing: {
         enable: true,
@@ -41,14 +42,17 @@ gulp.task('server', () => {
         proxy('/plate', {
           target: 'http://m.banggo.com',
           changeOrigin: true,
-          // pathRewrite: {
-          //   '^/banggo': ''
+          // pathRewrite:{
+          //   "/plate":""
           // }
         }),
-        // proxy('/backend', {
-        //   target: 'http://localhost:3000',
-        //   changeOrigin: true
-        // })
+        proxy('/showList', {
+          target: 'http://m.banggo.com',
+          changeOrigin: true,
+          pathRewrite:{
+            "/showList":""
+          }
+        }),
       ]
     }))
 })
@@ -61,13 +65,6 @@ gulp.task('scss', () => {
 
 gulp.task('js', () => {
   return gulp.src('./src/scripts/*.js')
-    // .pipe(babel({
-    //     presets: ['env'],
-    //     plugins: [["transform-runtime", {
-    //         "polyfill": false,
-    //         "regenerator": true
-    //     }]]
-    // }))
     .pipe(webpack({
       entry: {
         app: './src/scripts/app.js',
@@ -82,9 +79,9 @@ gulp.task('js', () => {
         ],
       }
     }))
-    .pipe(babel({
-      presets: ['env', 'stage-0']
-    }))
+    // .pipe(babel({
+    //   presets: ['env', 'stage-0']
+    // }))
     .pipe(gulp.dest('./dev/scripts'))
 })
 
@@ -92,7 +89,10 @@ gulp.task('copyhtml', () => {
   return gulp.src(['./*.html'])
     .pipe(gulp.dest('./dev/'))
 })
-
+gulp.task('copycss', () => {
+  return gulp.src(['./src/styles/lib/*.css'])
+    .pipe(gulp.dest('./dev/styles'))
+})
 gulp.task('copylibs', () => {
   return gulp.src(['./src/libs/*.js'])
     .pipe(gulp.dest('./dev/libs'))
@@ -104,11 +104,17 @@ gulp.task('copyicon', () => {
 })
 
 gulp.task('watch', () => {
-  gulp.watch('./*.html', ['copyhtml'])
-  gulp.watch('./src/styles/**/*', ['scss'])
-  gulp.watch('./src/scripts/**/*', ['js'])
+  watch('./*.html',() => {
+    gulp.start('copyhtml')
+  })
+  watch('./src/styles/**/*.scss',() => {
+    gulp.start('scss')
+  })
+  watch('./src/scripts/**/*',() => {
+    gulp.start('js')
+  })
 })
 
-gulp.task('default',['js', 'scss', 'copyhtml', 'copylibs', 'copyicon' ,'server', 'watch'], () => {
+gulp.task('default',['js', 'scss', 'copyhtml', 'copylibs', 'copyicon','copycss' ,'server', 'watch'], () => {
   console.log('done.');
 })

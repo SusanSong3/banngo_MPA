@@ -1,0 +1,95 @@
+.container{
+    header{
+        background-color: #f7f7f7;
+        border-bottom: 1px solid #eaeaea;
+        width: 100%;
+        height: 2.2rem;
+        @include flexbox();
+        justify-content: space-around;
+        align-items: center;
+        ul{
+            @include flexbox();
+            height: 2.2rem;
+            width: 100%;
+            justify-content: space-around;
+            align-items: center;
+            padding-left: 20%;
+            li{
+                @include flex();
+                text-align: center;
+                font-size: .75rem;
+                font-weight: 500;
+                line-height: 2.2rem;
+                a{
+                    width: 60%;
+                    height: 2.2rem;
+                    display: inline-block;
+                    
+                }
+                &.selected{
+                    a{
+                        border-bottom: .15rem solid #f8584f;
+                        color: #f8584f;
+                    } 
+                }    
+            }
+        }
+        i{
+            padding-right: 5%;
+            padding-left: 5%;
+            font-family: "iconfont";
+            font-size: 1rem;
+            font-weight: 700;
+            color: #c7c7c7;
+            
+        }
+    }
+    main{
+        background: #f7f7f7;
+        overflow: scroll;
+        @include flex();
+        @include flexbox();
+        width: 100%;
+        
+        // 左侧导航栏
+        nav{
+            width: 25%;
+            height: 100%;
+            overflow: hidden;
+            
+            ul{
+                li{
+                    height: 2rem;
+                    line-height: 2rem;
+                    font-size: .65rem;
+                    border-bottom: 1px solid #e2e2e2;
+                    overflow: hidden;
+                    border-right: 1px solid #e2e2e2;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    padding-left: .5rem;
+                    
+                    &.selected{
+                        background: white;
+                        border-right: 1px solid white;
+                         color: #f8584f;
+                        
+                    }
+                }
+            }
+        }
+        // 右侧选项卡内容
+        .content{
+            @include flex();
+            background: white;
+            height: 100%;
+            z-index: 2;
+            padding-left: .5rem;
+            padding-top: .5rem;
+            overflow: scroll;
+            @include title;
+        }
+    }
+}
+
+

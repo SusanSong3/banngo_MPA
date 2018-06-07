@@ -1,4 +1,35 @@
 .container{
+    header{
+        background: #f8584f;
+        @include flexbox();
+        justify-content: space-around;
+        align-items: center;
+        height: 2.2rem;
+        width: 100%;
+        .search{
+            height: 1.5rem;
+            width: 90%;
+            background: rgba(255, 255, 255, .5);
+            border-radius: .75rem;
+            flex-direction: row;
+            line-height: 1.5rem;
+            color: white;
+            
+            i{
+                font-family: "iconfont";
+                padding: .6rem;
+                line-height: 1.5rem;
+                font-size: .8rem;
+            }
+            span{
+                color: white;
+                font-size: .6rem;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            
+        }
+    }
     main{
         @include flex();
         overflow: scroll;
@@ -56,7 +87,6 @@
             // 热门品牌
             .hot_brand{
                 height: 16.4667rem;
-                background: antiquewhite;
                 .title {
                     a{
                         display: block;
@@ -178,7 +208,7 @@
                             width: 100%;
                             height: 10.1rem;
                             display: block;
-                            background: pink;
+                            background: #ddd;
                             img{
                                 width: 100%;
                                 height: 100%;

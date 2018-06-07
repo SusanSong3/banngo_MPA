@@ -53,4 +53,63 @@ html,body{
 a{
   color: black;
 }
-  
+// ------商品页每个模块的标题
+@mixin title{
+    p{
+      border-left: .1rem solid #f84646;
+      line-height: 1.25rem;
+      padding-left: 5%;
+      color: #000;
+      height: 1.25rem;
+      font-size: .7rem;
+      &:nth-of-type(1){
+        display: none;
+      }
+    }
+    span{
+      a{
+        display: inline-block;
+        width: 100%;
+        img{
+            width: 10.5rem;
+            height: 3.75rem;
+        }
+      
+      }
+      &:nth-of-type(2){
+        display: none;
+      }
+      &:nth-of-type(3){
+        display: none;
+      }
+      &:nth-of-type(4){
+        display: none;
+      }
+    }
+    ul{
+      padding-top: .5rem;
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      @include flexbox();
+      flex-direction: row;
+      flex-wrap: wrap;
+      li{
+          padding-right: .15rem;
+          a{
+              @include flexbox();
+              flex-direction: column;
+              img{
+                  width: 3.4rem;
+                  height: 3.4rem;
+              }
+              span{
+                  line-height: 1.5rem;
+                  text-align: center;
+                  color: #848484;
+                  font-size: .6rem;
+              }
+          }
+      }
+    }
+  }

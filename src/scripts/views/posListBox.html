@@ -1,0 +1,20 @@
+{{each children}}
+<p>{{$value.site_cate_name}}</p>
+<span>
+    <a href="">
+        <img src="{{$value.icon}}" alt="">
+    </a>
+</span>
+
+<ul>
+    {{each $value.children}}
+    <li>
+        <a href="">
+            <img src="{{$value.icon}}?x-oss-process=image/resize,m_pad,w_160,h_160" alt="">
+            <span>{{$value.site_cate_name}}</span>
+        </a>
+    </li>
+    {{/each}}
+</ul>
+{{/each}}
+
