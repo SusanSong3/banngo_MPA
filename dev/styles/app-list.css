@@ -808,7 +808,7 @@ a {
     color: #c7c7c7; }
 
 .container main {
-  background: #f7f7f7;
+  background: white;
   overflow: scroll;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -818,69 +818,14 @@ a {
   display: -webkit-flex;
   display: flex;
   flex-direction: column;
-  width: 100%; }
-  .container main .content {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-    width: .1px;
-    background: white;
-    height: 100%;
-    z-index: 2;
-    padding-left: .5rem;
-    padding-top: .5rem;
-    overflow: scroll; }
-    .container main .content p {
-      border-left: .1rem solid #f84646;
-      line-height: 1.25rem;
-      padding-left: 5%;
-      color: #000;
-      height: 1.25rem;
-      font-size: .7rem; }
-      .container main .content p:nth-of-type(1) {
-        display: none; }
-    .container main .content span a {
-      display: inline-block;
-      width: 100%; }
-      .container main .content span a img {
-        width: 10.5rem;
-        height: 3.75rem; }
-    .container main .content span:nth-of-type(2) {
-      display: none; }
-    .container main .content span:nth-of-type(3) {
-      display: none; }
-    .container main .content span:nth-of-type(4) {
-      display: none; }
-    .container main .content ul {
-      padding-top: .5rem;
-      width: 100%;
-      height: auto;
-      overflow: hidden;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap; }
-      .container main .content ul li {
-        padding-right: .15rem; }
-        .container main .content ul li a {
-          display: -webkit-box;
-          display: -webkit-flex;
-          display: flex;
-          flex-direction: column; }
-          .container main .content ul li a img {
-            width: 3.4rem;
-            height: 3.4rem; }
-          .container main .content ul li a span {
-            line-height: 1.5rem;
-            text-align: center;
-            color: #848484;
-            font-size: .6rem; }
+  width: 100%;
+  height: auto; }
 
 nav {
-  height: 2.1rem;
+  height: 2.1rem !important;
   width: 100%;
-  overflow-x: auto; }
+  overflow-x: auto;
+  background: white; }
   nav ul {
     width: 130%;
     height: 2.05rem;
@@ -906,58 +851,118 @@ nav {
         border-bottom: .2rem solid #ff5000;
         color: #ff5000; }
 
-.swiper-container {
-  height: 7.5rem;
-  width: 100%; }
-  .swiper-container .swiper-slide img {
+.brand_content {
+  width: 100% !important;
+  height: auto;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: .1px;
+  overflow: scroll;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column; }
+  .brand_content .swiper-container {
+    height: 7.5rem;
+    width: 100% !important; }
+    .brand_content .swiper-container .swiper-slide img {
+      width: 100%;
+      height: 100%; }
+    .brand_content .swiper-container .swiper-pagination {
+      width: 100%;
+      height: 1.2rem;
+      bottom: .5rem !important;
+      text-align: left; }
+      .brand_content .swiper-container .swiper-pagination span {
+        background: #979797;
+        opacity: 1;
+        width: .4rem;
+        height: .4rem; }
+        .brand_content .swiper-container .swiper-pagination span.swiper-pagination-bullet-active {
+          background: black; }
+  .brand_content .hotBrand {
+    overflow-x: auto;
     width: 100%;
-    height: 100%; }
-  .swiper-container .swiper-pagination {
-    width: 100%;
-    height: 1.2rem;
-    bottom: .5rem !important;
-    text-align: left; }
-    .swiper-container .swiper-pagination span {
-      background: #979797;
-      opacity: 1;
-      width: .4rem;
-      height: .4rem; }
-      .swiper-container .swiper-pagination span.swiper-pagination-bullet-active {
-        background: black; }
-
-.hotBrand {
-  overflow-x: auto;
-  width: 100%;
-  height: auto; }
-  .hotBrand p {
-    width: 100%;
-    font-size: .6rem;
-    font-weight: 700;
-    padding: .5rem; }
-  .hotBrand div {
-    width: 100%;
-    overflow-x: auto; }
-    .hotBrand div ul {
-      overflow-x: auto;
+    height: auto; }
+    .brand_content .hotBrand p {
+      width: 100%;
+      font-size: .6rem;
+      font-weight: 700;
+      padding: .5rem; }
+    .brand_content .hotBrand div {
+      width: 100%;
+      overflow-x: auto; }
+      .brand_content .hotBrand div ul {
+        overflow-x: auto;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        width: 130%;
+        height: 100%;
+        overflow-x: auto; }
+        .brand_content .hotBrand div ul li {
+          display: inline-block;
+          padding-right: .15rem; }
+          .brand_content .hotBrand div ul li a img {
+            width: 3.75rem;
+            height: 3.75rem; }
+  .brand_content .brandList {
+    width: 100% !important;
+    height: auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    width: .1px;
+    flex-direction: column;
+    font-family: "微软雅黑"; }
+    .brand_content .brandList p {
+      background: white;
+      width: 100%;
+      font-size: .6rem;
+      font-weight: 700;
+      padding: .5rem; }
+    .brand_content .brandList dl {
+      width: 100%;
+      height: auto;
       display: -webkit-box;
       display: -webkit-flex;
       display: flex;
-      flex-direction: row;
-      width: 130%;
-      height: 100%;
-      overflow-x: auto; }
-      .hotBrand div ul li {
-        display: inline-block;
-        padding-right: .15rem; }
-        .hotBrand div ul li a img {
-          width: 3.75rem;
-          height: 3.75rem; }
+      flex-direction: column; }
+      .brand_content .brandList dl dt {
+        font-size: .7rem;
+        padding-left: 1.1rem;
+        line-height: .75rem;
+        background: #f7f7f7; }
+      .brand_content .brandList dl dd {
+        padding: 4% 0 4% 1.1rem;
+        font-size: .7rem;
+        border-bottom: 1px solid #ededed;
+        background: white; }
 
-.brandList p {
-  width: 100%;
-  font-size: .6rem;
-  font-weight: 700;
-  padding: .5rem; }
+.brandListPage {
+  writing-mode: 100%;
+  height: auto;
+  padding-bottom: 2rem;
+  background: white; }
+  .brandListPage ul {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; }
+    .brandListPage ul li {
+      width: 33.3%;
+      height: 5.35rem;
+      border-right: 1px solid #f7f7f7;
+      border-bottom: 1px solid #f7f7f7; }
+      .brandListPage ul li a img {
+        width: 100%;
+        height: 100%; }
 
 .container {
   display: -webkit-box;

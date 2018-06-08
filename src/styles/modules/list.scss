@@ -45,12 +45,13 @@
         }
     }
     main{
-        background: #f7f7f7;
+        background: white;
         overflow: scroll;
         @include flex();
         @include flexbox();
         flex-direction: column;
         width: 100%;
+        height: auto;
         
         // 左侧导航栏
         // nav{
@@ -80,16 +81,16 @@
         //     }
         // }
         // 右侧选项卡内容
-        .content{
-            @include flex();
-            background: white;
-            height: 100%;
-            z-index: 2;
-            padding-left: .5rem;
-            padding-top: .5rem;
-            overflow: scroll;
-            @include list_subtitle;
-        }
+        // .content{
+        //     @include flex();
+        //     background: white;
+        //     height: 100%;
+        //     z-index: 2;
+        //     padding-left: .5rem;
+        //     padding-top: .5rem;
+        //     overflow: scroll;
+        //     @include list_subtitle;
+        // }
 
         
     }

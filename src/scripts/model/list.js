@@ -13,6 +13,13 @@ const list = {
         .then(result => {
             return result
         });
+    },
+    findBrandPage(data){
+        return fetch('/showList/list-category/getCateRelBrandInfo.shtml?cate_id='+data)
+        .then(response => response.json())
+        .then(result => {
+            return result
+        });
     }
 }
 

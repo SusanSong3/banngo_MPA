@@ -108,14 +108,18 @@ const indexTpl = __webpack_require__(0)
 const footerTpl = __webpack_require__(1)
 const listTpl = __webpack_require__(9)
 const brandTpl = __webpack_require__(10)
-// console.log(brandTpl);
+const brandHotTpl = __webpack_require__(11)
+
 
 const indexController = __webpack_require__(2)
-const listController = __webpack_require__(11)
+const listController = __webpack_require__(12)
+
 
 $('#root').html(indexTpl)
 $('.container').html(listTpl + footerTpl)
-$('.container main').html(brandTpl)
+$('.container main').html(brandTpl);
+// $('.brand_content').html(posListBrandPageTpl);
+
 
 var swiper = new Swiper(".swiper-container",{
     loop:true,
@@ -125,9 +129,10 @@ var swiper = new Swiper(".swiper-container",{
     }
 })
 
-// $("header li").on("click",function(){
-//     $(this).addClass("selected").siblings().removeClass("selected")
-// })
+$("header li").on("click",function(){
+    $(this).addClass("selected").siblings().removeClass("selected")
+})
+
 // ;(async ()=>{
 //     await listController.render(492)
 //     $("main nav ul li").on("click",function(){
@@ -136,10 +141,23 @@ var swiper = new Swiper(".swiper-container",{
 //         listController.render(data)
 //     })
 // })()
+
 ;(async () => {
-    await listController.renderBrand()
+    await listController.renderBrandPage(498);
+    $("nav ul li").on("click",function(){
+        let data = $(this).attr("c_id")
+        listController.renderBrandPage(data)
+    })
 })()
 
+
+
+
+
+
+//品牌页面加载
+listController.renderBrand()
+listController.navAction()
 indexController.footerAction()
 
 
@@ -153,50 +171,63 @@ module.exports = "<header>    <ul>        <li class=\"selected\"><a href=\"###\"
 /* 10 */
 /***/ (function(module, exports) {
 
-module.exports = "<nav>    <ul>        <li class=\"selected\">热门</li>        <li>男装</li>        <li>女装</li>        <li>儿童</li>        <li>鞋履</li>        <li>箱包</li>        <li>配饰</li>    </ul></nav><div class=\"swiper-container\">    <div class=\"swiper-wrapper\">        <div class=\"swiper-slide\"><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/20160914-wx/misu.jpg\" alt=\"\"></a></div>        <div class=\"swiper-slide\"><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/20160914-wx/fhgs.jpg\" alt=\"\"></a></div>        <div class=\"swiper-slide\"><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/20160905/mango.jpg\" alt=\"\"></a></div>        <div class=\"swiper-slide\"><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/20160914-wx/bjj.jpg\" alt=\"\"></a></div>        <div class= \"swiper-slide\"><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/20160914-wx/qpl.jpg\" alt=\"\"></a></div>    </div>    <div class=\"swiper-pagination\"></div></div><div class=\"hotBrand\">    <p>热门品牌</p>    <div>        <ul class=\"hotBrandWrap\">            <li><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/APP/71030aprm_01.jpg\" alt=\"\"></a></li>            <li><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/APP/71030aprm_02.jpg\" alt=\"\"></a></li>            <li><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/APP/71030aprm_04.jpg\" alt=\"\"></a></li>            <li><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/APP/71030aprm_05.jpg\" alt=\"\"></a></li>            <li><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/banggo2017/APP/20180129/a_ppmlqs.jpg\" alt=\"\"></a></li>        </ul>    </div></div><div class=\"brandList\">    <p>品牌列表</p>    <dl>            </dl></div>"
+module.exports = "<nav>    <ul>        <li c_id=\"492\" class=\"selected\">热门</li>        <li c_id=\"498\">男装</li>        <li c_id=\"474\">女装</li>        <li c_id=\"476\">儿童</li>        <li c_id=\"486\">鞋履</li>        <li c_id=\"480\">箱包</li>        <li c_id=\"763\">配饰</li>    </ul></nav><div class=\"brand_content\">    </div>"
 
 /***/ }),
 /* 11 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"swiper-container\">    <div class=\"swiper-wrapper\">        <div class=\"swiper-slide\"><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/20160914-wx/misu.jpg\" alt=\"\"></a></div>        <div class=\"swiper-slide\"><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/20160914-wx/fhgs.jpg\" alt=\"\"></a></div>        <div class=\"swiper-slide\"><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/20160905/mango.jpg\" alt=\"\"></a></div>        <div class=\"swiper-slide\"><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/20160914-wx/bjj.jpg\" alt=\"\"></a></div>        <div class= \"swiper-slide\"><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/20160914-wx/qpl.jpg\" alt=\"\"></a></div>    </div>    <div class=\"swiper-pagination\"></div></div><div class=\"hotBrand\">    <p>热门品牌</p>    <div>        <ul class=\"hotBrandWrap\">            <li><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/APP/71030aprm_01.jpg\" alt=\"\"></a></li>            <li><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/APP/71030aprm_02.jpg\" alt=\"\"></a></li>            <li><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/APP/71030aprm_04.jpg\" alt=\"\"></a></li>            <li><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/APP/71030aprm_05.jpg\" alt=\"\"></a></li>            <li><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/banggo2017/APP/20180129/a_ppmlqs.jpg\" alt=\"\"></a></li>        </ul>    </div></div><div class=\"brandList\">    <p>品牌列表</p>    <dl></dl></div>"
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-const list = __webpack_require__(12)
-const posListBoxTpl = __webpack_require__(13)
-const posListBrandTpl = __webpack_require__(14)
+const list = __webpack_require__(13)
+const posListBoxTpl = __webpack_require__(14)
+const posListBrandTpl = __webpack_require__(15)
+const posListBrandPageTpl = __webpack_require__(16)
 
 const listController = {
     async render(data){
         let result = await list.find(data)
         let finalResult = result.data[0];
-        // console.log(finalResult.children)
         var html = template.render(posListBoxTpl, finalResult)
-        // console.log(html);
         var htmlArr = htmlArr + html;
-
-        // console.log(htmlArr);
         let finalhtml = htmlArr.substr(9)
         $('.content').html(finalhtml);
-        // return htmlArr
-
     },
     async renderBrand(){
         let result = await list.findBrand()
-        console.log(result);
-        var html = template.render(posListBrandTpl, result)
-        console.log(html);
-        // var htmlArr = htmlArr + html;
-
-        // // console.log(htmlArr);
-        // let finalhtml = htmlArr.substr(9)
-        // $('.content').html(finalhtml);
-        // // return htmlArr
-
+        // console.log(result);
+        var brandhtml = template.render(posListBrandPageTpl, result)
+        $('.brandList dl').html(brandhtml)
     },
+    async renderBrandPage(data){
+        let result = await list.findBrandPage(data)
+        // console.log(result);
+        // let finamResult = result.data
+        var brandPagehtml = template.render(posListBrandPageTpl, result)
+        // console.log(brandPagehtml);
+        $('.brand_content').html(brandPagehtml)
+    },
+    navAction(){
+        // const brandNavList = ['index.html', 'list.html','cart.html','mine.html']
+        $('nav li').on('click',function(){
+            $(this).addClass("selected").siblings().removeClass("selected")
+            // location.href = pagelist[$(this).index()]
+        })
+        // let pathname = location.pathname.substr(1)
+        // let curIndex = pagelist.indexOf(pathname)
+        // curIndex = curIndex > 0 ? curIndex : 0;
+        // $('footer li').eq(curIndex).addClass("active").siblings().removeClass("active")
+    }
     
 }
 module.exports = listController
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 const list = {
@@ -214,22 +245,35 @@ const list = {
         .then(result => {
             return result
         });
+    },
+    findBrandPage(data){
+        return fetch('/showList/list-category/getCateRelBrandInfo.shtml?cate_id='+data)
+        .then(response => response.json())
+        .then(result => {
+            return result
+        });
     }
 }
 
 module.exports = list
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 module.exports = "{{each children}}<p>{{$value.site_cate_name}}</p><span>    <a href=\"\">        <img src=\"{{$value.icon}}\" alt=\"\">    </a></span><ul>    {{each $value.children}}    <li>        <a href=\"\">            <img src=\"{{$value.icon}}?x-oss-process=image/resize,m_pad,w_160,h_160\" alt=\"\">            <span>{{$value.site_cate_name}}</span>        </a>    </li>    {{/each}}</ul>{{/each}}"
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
-module.exports = "{{each data}}<dt>{{$index}}</dt>{{each value}}<dd>{{$value.name}}</dd>{{/each}}{{/each}}"
+module.exports = "{{each data}}<dt>{{$index}}</dt>{{each $value}}<dd><a href=\"###\">{{$value.name}}</a></dd>{{/each}}{{/each}}"
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"brandListPage\">    <ul>        {{each data}}        <li>            <a href=\"\">                <img src=\"{{$value.image_url}}\" alt=\"\">            </a>        </li>        {{/each}}    </ul></div>"
 
 /***/ })
 /******/ ]);
