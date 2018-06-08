@@ -75,19 +75,6 @@
                         border-right: 1px solid white;
                          color: #f8584f;
                         
-<<<<<<< HEAD
-                    }
-                }
-            }
-        }
-        //分类页-右侧数据
-        .right_content{
-            width: auto ;
-            @include flex();
-            // @include flexbox();
-            background: white;
-            // height: auto !important;
-=======
         //             }
         //         }
         //     }
@@ -97,17 +84,12 @@
             @include flex();
             background: white;
             height: 100%;
->>>>>>> parent of 314f64b... 商品页-品牌
             z-index: 2;
             padding-left: .5rem;
             padding-top: .5rem;
             overflow: scroll;
             @include list_subtitle;
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> parent of 314f64b... 商品页-品牌
         
         //品牌页-nav
         #list_brand{

@@ -6,8 +6,6 @@ const list = {
             return result
         });
     },
-<<<<<<< HEAD
-=======
     findBrand(){
         return fetch('/showList/list-brand/getAssortBrandInfo.shtml')
         .then(response => response.json())
@@ -15,7 +13,6 @@ const list = {
             return result
         });
     }
->>>>>>> parent of 314f64b... 商品页-品牌
 }
 
 module.exports = list
