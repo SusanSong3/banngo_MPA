@@ -2,16 +2,21 @@ const indexTpl = require('./views/index.html')
 const footerTpl = require('./views/footer.html')
 //list页
 const listTpl = require('./views/list.html')
+<<<<<<< HEAD
 
 //品牌
 const listBrandTpl = require('./views/list_brand.html')
+=======
+const brandTpl = require('./views/brand.html')
+// console.log(brandTpl);
+>>>>>>> parent of 314f64b... 商品页-品牌
 
 const indexController = require('./controllers/index')
 const listController = require('./controllers/list')
 
-
 $('#root').html(indexTpl)
 $('.container').html(listTpl + footerTpl)
+<<<<<<< HEAD
 // $('.container main').html(listClassifyTpl);
 
 //right_content
@@ -31,6 +36,9 @@ $('.container').html(listTpl + footerTpl)
 //         })
 //     })()
 // })
+=======
+$('.container main').html(brandTpl)
+>>>>>>> parent of 314f64b... 商品页-品牌
 
 //轮播图
 var swiper = new Swiper(".swiper-container",{
@@ -41,6 +49,7 @@ var swiper = new Swiper(".swiper-container",{
     }
 })
 
+<<<<<<< HEAD
 $("header li").on("click",function(){
     $(this).addClass("selected").siblings().removeClass("selected")
 })
@@ -67,4 +76,21 @@ $("header li").on("click",function(){
 
 //品牌页面加载
 listController.navAction()
+=======
+// $("header li").on("click",function(){
+//     $(this).addClass("selected").siblings().removeClass("selected")
+// })
+// ;(async ()=>{
+//     await listController.render(492)
+//     $("main nav ul li").on("click",function(){
+//         $(this).addClass("selected").siblings().removeClass("selected");
+//         let data = $(this).attr("c_id")
+//         listController.render(data)
+//     })
+// })()
+;(async () => {
+    await listController.renderBrand()
+})()
+
+>>>>>>> parent of 314f64b... 商品页-品牌
 indexController.footerAction()

@@ -108,6 +108,7 @@ const indexTpl = __webpack_require__(0)
 const footerTpl = __webpack_require__(1)
 //list页
 const listTpl = __webpack_require__(9)
+<<<<<<< HEAD
 
 //品牌
 const listBrandTpl = __webpack_require__(10)
@@ -124,6 +125,17 @@ $('.container').html(listTpl + footerTpl)
 ;(async () => {
     let html = await listController.render("/showList/list-category/getCateRelChild.shtml?cate_id=492")
 })()
+=======
+const brandTpl = __webpack_require__(10)
+// console.log(brandTpl);
+
+const indexController = __webpack_require__(2)
+const listController = __webpack_require__(11)
+
+$('#root').html(indexTpl)
+$('.container').html(listTpl + footerTpl)
+$('.container main').html(brandTpl)
+>>>>>>> parent of 314f64b... 商品页-品牌
 
 // $("#brand").on("click",() => {
 //     $('.container main').html(listBrandTpl);
@@ -147,6 +159,7 @@ var swiper = new Swiper(".swiper-container",{
     }
 })
 
+<<<<<<< HEAD
 $("header li").on("click",function(){
     $(this).addClass("selected").siblings().removeClass("selected")
 })
@@ -173,6 +186,23 @@ $("header li").on("click",function(){
 
 //品牌页面加载
 listController.navAction()
+=======
+// $("header li").on("click",function(){
+//     $(this).addClass("selected").siblings().removeClass("selected")
+// })
+// ;(async ()=>{
+//     await listController.render(492)
+//     $("main nav ul li").on("click",function(){
+//         $(this).addClass("selected").siblings().removeClass("selected");
+//         let data = $(this).attr("c_id")
+//         listController.render(data)
+//     })
+// })()
+;(async () => {
+    await listController.renderBrand()
+})()
+
+>>>>>>> parent of 314f64b... 商品页-品牌
 indexController.footerAction()
 
 
@@ -186,7 +216,11 @@ module.exports = "<header>    <ul>        <li class=\"selected\" id=\"classify\"
 /* 10 */
 /***/ (function(module, exports) {
 
+<<<<<<< HEAD
 module.exports = "<nav id=\"list_brand\">    <ul>        <li c_id=\"492\" class=\"selected\">热门</li>        <li c_id=\"498\">男装</li>        <li c_id=\"474\">女装</li>        <li c_id=\"476\">儿童</li>        <li c_id=\"486\">鞋履</li>        <li c_id=\"480\">箱包</li>        <li c_id=\"763\">配饰</li>    </ul></nav><div class=\"list_brand_content\">    </div>"
+=======
+module.exports = "<nav>    <ul>        <li class=\"selected\">热门</li>        <li>男装</li>        <li>女装</li>        <li>儿童</li>        <li>鞋履</li>        <li>箱包</li>        <li>配饰</li>    </ul></nav><div class=\"swiper-container\">    <div class=\"swiper-wrapper\">        <div class=\"swiper-slide\"><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/20160914-wx/misu.jpg\" alt=\"\"></a></div>        <div class=\"swiper-slide\"><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/20160914-wx/fhgs.jpg\" alt=\"\"></a></div>        <div class=\"swiper-slide\"><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/20160905/mango.jpg\" alt=\"\"></a></div>        <div class=\"swiper-slide\"><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/20160914-wx/bjj.jpg\" alt=\"\"></a></div>        <div class= \"swiper-slide\"><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/20160914-wx/qpl.jpg\" alt=\"\"></a></div>    </div>    <div class=\"swiper-pagination\"></div></div><div class=\"hotBrand\">    <p>热门品牌</p>    <div>        <ul class=\"hotBrandWrap\">            <li><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/APP/71030aprm_01.jpg\" alt=\"\"></a></li>            <li><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/APP/71030aprm_02.jpg\" alt=\"\"></a></li>            <li><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/APP/71030aprm_04.jpg\" alt=\"\"></a></li>            <li><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/APP/71030aprm_05.jpg\" alt=\"\"></a></li>            <li><a href=\"###\"><img src=\"http://img.banggo.com/sources/cms/banggo2017/APP/20180129/a_ppmlqs.jpg\" alt=\"\"></a></li>        </ul>    </div></div><div class=\"brandList\">    <p>品牌列表</p>    <dl>            </dl></div>"
+>>>>>>> parent of 314f64b... 商品页-品牌
 
 /***/ }),
 /* 11 */
@@ -195,12 +229,16 @@ module.exports = "<nav id=\"list_brand\">    <ul>        <li c_id=\"492\" class=
 const list = __webpack_require__(12)
 const posListBoxTpl = __webpack_require__(13)
 const posListBrandTpl = __webpack_require__(14)
+<<<<<<< HEAD
 const posListBrandPageTpl = __webpack_require__(15)
+=======
+>>>>>>> parent of 314f64b... 商品页-品牌
 
 const listController = {
     //分类渲染  默认492
     async render(data){
         let result = await list.find(data)
+<<<<<<< HEAD
         // console.log(reseult);
         // let finalResult = result.data[0];
         // var html = template.render(posListBoxTpl, finalResult)
@@ -217,6 +255,33 @@ const listController = {
             $(this).addClass("selected").siblings().removeClass("selected")
         })
     }
+=======
+        let finalResult = result.data[0];
+        // console.log(finalResult.children)
+        var html = template.render(posListBoxTpl, finalResult)
+        // console.log(html);
+        var htmlArr = htmlArr + html;
+
+        // console.log(htmlArr);
+        let finalhtml = htmlArr.substr(9)
+        $('.content').html(finalhtml);
+        // return htmlArr
+
+    },
+    async renderBrand(){
+        let result = await list.findBrand()
+        console.log(result);
+        var html = template.render(posListBrandTpl, result)
+        console.log(html);
+        // var htmlArr = htmlArr + html;
+
+        // // console.log(htmlArr);
+        // let finalhtml = htmlArr.substr(9)
+        // $('.content').html(finalhtml);
+        // // return htmlArr
+
+    },
+>>>>>>> parent of 314f64b... 商品页-品牌
     
 }
 module.exports = listController
@@ -232,7 +297,11 @@ const list = {
         .then(result => {
             return result
         });
+<<<<<<< HEAD
     },
+=======
+    }
+>>>>>>> parent of 314f64b... 商品页-品牌
 }
 
 module.exports = list
@@ -245,15 +314,18 @@ module.exports = "{{each children}}<p>{{$value.site_cate_name}}</p><span>    <a 
 
 /***/ }),
 /* 14 */
+<<<<<<< HEAD
 /***/ (function(module, exports) {
 
 module.exports = "{{each data}}<dt>{{$index}}</dt>{{each $value}}<dd><a href=\"###\">{{$value.name}}</a></dd>{{/each}}{{/each}}"
 
 /***/ }),
 /* 15 */
+=======
+>>>>>>> parent of 314f64b... 商品页-品牌
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"brandListPage\">    <ul>        {{each data}}        <li>            <a href=\"\">                <img src=\"{{$value.image_url}}\" alt=\"\">            </a>        </li>        {{/each}}    </ul></div>"
+module.exports = "{{each data}}<dt>{{$index}}</dt>{{each value}}<dd>{{$value.name}}</dd>{{/each}}{{/each}}"
 
 /***/ })
 /******/ ]);
