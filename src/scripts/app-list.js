@@ -7,6 +7,7 @@ const classifyTpl = require('./views/listClassify.html')
 
 const posListBoxTpl = require('./views/posListBox.html')
 const posListBrandTpl = require('./views/posListBrand.html')
+const posListBrandPageTpl = require('./views/posListBrandPage.html')
 
 const indexController = require('./controllers/index')
 const listController = require('./controllers/list')
@@ -34,25 +35,42 @@ $('main').html(classifyTpl)
 })()
 
 //点击品牌就切换到 【 品牌页 】
- $("header li").on("click",function(){
+ $("header li").on("click",async function(){
     $(this).addClass("selected").siblings().removeClass("selected")
      if(($(this).attr("id") == "classify")){
         $('main').html(classifyTpl)
-     }else{
-        $('main').html(brandTpl)
+     }else if($(this).attr('id' == "brand")){
+        await $('main').html(brandTpl)
+        // if(sessionStorage.getItem(brandList) === null){
+            let posListBrandPage = await listController.render('/showList/list-brand/getAssortBrandInfo.shtml',"",posListBrandTpl)
+        // }else{
+            // storage = sessionStorage.getItem("brandList")
+            // console.log(storage);
+            // html = await listController.render("",data,posListBrandTpl)
+            $('.brandList dl').html(posListBrandPage)
+        // }
+        
+        
+        
+        
+        // console.log(posListBrandPage);
+        
      }
+      var swiper = await new Swiper(".swiper-container",{
+         loop:true,
+         autoplay:true,
+         pagination:{
+             el:".swiper-pagination"
+         }
+     })
     
+
+
+
  })
 
 
-//轮播图
-var swiper = new Swiper(".swiper-container",{
-    loop:true,
-    autoplay:true,
-    pagination:{
-        el:".swiper-pagination"
-    }
-})
+
 
 
 
